@@ -1,0 +1,44 @@
+.action-card {
+  position: relative;
+  min-height: 145px;
+  padding: 19px 14px;
+  background: linear-gradient(
+    145deg,
+    rgba(28, 25, 61, .95),
+    rgba(13, 18, 37, .9)
+  );
+  border: 1px solid rgba(160, 32, 240, .2);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: border .3s, box-shadow .3s;
+}
+
+.action-card:hover {
+  border-color: #a020f0;
+  box-shadow: 0 0 20px rgba(160, 32, 240, .15);
+}
+
+.action-icon {
+  color: #00cfff;
+  margin-bottom: 16px;
+}
+
+.action-card h3 {
+  font-size: 14px;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.action-card p {
+  font-size: 11px;
+  color: #9292aa;
+  line-height: 1.6;
+}
+
+.action-arrow {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  color: #a020f0;
+  font-size: 18px;
+}

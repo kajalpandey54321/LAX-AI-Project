@@ -1,0 +1,103 @@
+.voice-section {
+  position: fixed !important;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  width: min(440px, 90vw);
+  height: 110px;
+
+  z-index: 60;
+}
+
+/* Microphone */
+
+.voice-mic {
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  border: 3px solid #00cfff;
+  border-radius: 50%;
+
+  background: linear-gradient(
+    145deg,
+    #8026ff,
+    #101a83
+  );
+
+  box-shadow:
+    0 0 15px #a42bff,
+    0 0 30px rgba(0, 190, 255, .6),
+    inset 0 0 15px rgba(255,255,255,.15);
+
+  cursor: pointer;
+  transition: .3s;
+}
+
+.voice-mic:hover {
+  transform: scale(1.07);
+}
+
+.voice-mic.listening {
+  border-color: #00eaff;
+  box-shadow:
+    0 0 20px #00cfff,
+    0 0 45px #8c24ff;
+}
+
+/* Waveform */
+
+.waveform {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 65px;
+  overflow: hidden;
+}
+
+.waveform span {
+  width: 3px;
+  height: var(--h);
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    to top,
+    #00d9ff,
+    #a52aff
+  );
+
+  box-shadow: 0 0 8px #9e36ff;
+
+  animation: waveAnimation .8s ease-in-out infinite alternate;
+  animation-delay: calc(var(--i) * 0.04s);
+}
+
+@keyframes waveAnimation {
+  from {
+    transform: scaleY(.35);
+    opacity: .55;
+  }
+
+  to {
+    transform: scaleY(1.1);
+    opacity: 1;
+  }
+}
+
+.voice-mic.listening ~ .waveform span {
+  animation-duration: .3s;
+}

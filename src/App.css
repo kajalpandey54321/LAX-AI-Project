@@ -1,0 +1,97 @@
+.app-container {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #17143b,
+      transparent 45%
+    ),
+    #050611;
+
+  color: white;
+}
+
+.main-layout {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 20px;
+  padding: 20px 3%;
+  overflow: hidden;
+}
+
+.left-section,
+.right-section {
+  min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #7136a5 transparent;
+}
+
+.center-section {
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .main-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .center-section {
+    display: none;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .navbar {
+    height: 65px;
+  }
+
+  .main-layout {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  .left-content,
+  .right-content {
+    padding: 22px 14px;
+  }
+
+  .left-title {
+    font-size: 36px;
+  }
+
+  .action-card {
+    min-height: 130px;
+  }
+
+  .voice-control {
+    gap: 8px;
+    padding: 0 10px;
+  }
+
+  .voice-control input {
+    width: 100%;
+    min-width: 0;
+    font-size: 11px;
+  }
+}

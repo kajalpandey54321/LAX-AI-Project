@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+}
+
+.lax-navbar {
+  width: min(100% - 32px, 896px);
+  min-height: 54px;
+  margin: 7px auto;
+  /* padding: 0 16px 0 29px; */
+  padding: 0;
+
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  gap: 30px;
+
+  color: #f5f3ff;
+  background:
+    radial-gradient(ellipse at 47% 110%, rgba(58, 104, 255, 0.2), transparent 22%),
+    linear-gradient(100deg, #08080d 0%, #090911 65%, #0c0811 100%);
+  border-bottom: 1px solid rgba(151, 120, 255, 0.2);
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.lax-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+
+  color: inherit;
+  text-decoration: none;
+}
+
+.lax-logo {
+  width: 50px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  color: #a855ff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1;
+
+  text-shadow:
+    0 0 5px #bd62ff,
+    0 0 12px rgba(168, 85, 247, 0.9),
+    0 0 23px rgba(111, 55, 255, 0.65);
+}
+
+.lax-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.lax-brand-text strong {
+  color: #f7f5ff;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.lax-brand-text small {
+  margin-top: 3px;
+  color: #c3bfd0;
+  font-size: 9px;
+  letter-spacing: 0.1px;
+}
+
+.lax-nav-links {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.lax-nav-link,
+.lax-login-link {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  color: #eeeaf7;
+  font-size: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.lax-nav-link {
+  padding: 0 8px;
+}
+
+.lax-nav-link:hover {
+  color: #c89cff;
+}
+
+.lax-nav-link.active {
+  padding: 5px 12px;
+  color: #ffffff;
+  background: linear-gradient(180deg, rgba(132, 55, 255, 0.35), rgba(79, 27, 155, 0.19));
+  border: 1px solid rgba(163, 91, 255, 0.8);
+  border-radius: 999px;
+  box-shadow:
+    0 0 8px rgba(150, 66, 255, 0.55),
+    inset 0 0 8px rgba(150, 66, 255, 0.18);
+}
+
+.lax-login-link {
+  min-width: 86px;
+  padding: 5px 13px;
+  margin-left: 8px;
+
+  color: #ffffff;
+  border: 1px solid #08d5f5;
+  border-radius: 999px;
+  box-shadow:
+    0 0 8px rgba(0, 211, 255, 0.28),
+    inset 0 0 7px rgba(0, 211, 255, 0.08);
+}
+
+.lax-login-link:hover {
+  color: #baf7ff;
+  background: rgba(0, 211, 255, 0.1);
+  box-shadow: 0 0 13px rgba(0, 211, 255, 0.4);
+}
+
+@media (max-width: 700px) {
+  .lax-navbar {
+    width: calc(100% - 20px);
+    padding: 9px 12px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .lax-nav-links {
+    width: 100%;
+    min-height: auto;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .lax-nav-link,
+  .lax-login-link {
+    font-size: 11px;
+  }
+
+  .lax-login-link {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .lax-nav-links {
+    justify-content: space-between;
+  }
+
+  .lax-nav-link,
+  .lax-login-link {
+    gap: 4px;
+    padding-right: 6px;
+    padding-left: 6px;
+  }
+}
