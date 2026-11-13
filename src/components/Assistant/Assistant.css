@@ -1,83 +1,119 @@
 .hero-center {
   width: 100%;
   height: 100%;
+  min-height: 450px;
   position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   overflow: visible;
 }
 
+/* Neon Rings */
+
 .girl-ring {
   position: absolute;
-  width: 95%;
+
+  width: min(95%, 440px);
   aspect-ratio: 1;
+
   border-radius: 50%;
+
   left: 50%;
   top: 43%;
+
   transform: translate(-50%, -50%);
 }
 
 .ring-blue {
-  border: 3px solid rgba(0, 160, 255, .7);
+  border: 3px solid rgba(0, 160, 255, 0.7);
+
   box-shadow:
     0 0 18px #008cff,
     inset 0 0 18px #008cff;
 }
 
 .ring-purple {
-  width: 82%;
-  border: 3px solid rgba(185, 35, 255, .7);
-  box-shadow: 0 0 25px #9c24ff;
+  width: min(82%, 380px);
+
+  border: 3px solid rgba(185, 35, 255, 0.7);
+
+  box-shadow:
+    0 0 25px #9c24ff,
+    inset 0 0 15px rgba(156, 36, 255, 0.3);
 }
+
+/* Girl Image */
 
 .girl-image {
   position: absolute;
-  top: 0;
-  left: 25%;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 80%;
+
+  top: 43%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: min(81%, 380px);
+  aspect-ratio: 1/1;
+
+  border-radius: 50%;
+  overflow: hidden;
+
   z-index: 2;
+
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .girl-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  filter: drop-shadow(0 0 20px rgba(100, 60, 255, .5));
+
+  object-fit: cover;
+  object-position: center center;
+
+  border-radius: 50%;
+  display: block;
+
+  filter: drop-shadow(
+    0 0 20px rgba(100, 60, 255, 0.5)
+  );
 }
 
-/* Greeting bubble */
+/* Greeting Bubble */
 
 .greeting-bubble {
   position: absolute;
   z-index: 5;
+
   left: 50%;
   bottom: 17%;
+
   transform: translateX(-50%);
 
   width: min(290px, 95%);
   padding: 18px 22px;
 
-  background: rgba(8, 8, 34, .96);
+  background: rgba(8, 8, 34, 0.96);
+
   border: 2px solid #9c31ff;
   border-radius: 28px;
 
   color: white;
 
   box-shadow:
-    0 0 15px rgba(162, 37, 255, .4),
-    0 0 25px rgba(0, 174, 255, .15);
+    0 0 15px rgba(162, 37, 255, 0.4),
+    0 0 25px rgba(0, 174, 255, 0.15);
 }
 
 .greeting-top {
   display: flex;
   align-items: flex-start;
   gap: 12px;
+
   line-height: 1.5;
   font-size: 15px;
 }
@@ -90,13 +126,16 @@
 .greeting-message {
   margin-top: 17px;
   padding-left: 32px;
+
   color: #e0dceb;
+
   font-size: 14px;
   line-height: 1.5;
 }
 
 .bubble-arrow {
   position: absolute;
+
   bottom: -12px;
   left: 76%;
 
@@ -104,8 +143,34 @@
   height: 22px;
 
   background: #080822;
+
   border-right: 2px solid #9c31ff;
   border-bottom: 2px solid #9c31ff;
 
   transform: rotate(45deg);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .hero-center {
+    min-height: 420px;
+  }
+
+  .girl-ring {
+    width: min(90%, 360px);
+  }
+
+  .ring-purple {
+    width: min(78%, 310px);
+  }
+
+  .girl-image {
+    width: min(58%, 240px);
+  }
+
+  .greeting-bubble {
+    bottom: 5%;
+  }
 }

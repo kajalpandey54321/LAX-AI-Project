@@ -1,31 +1,23 @@
 import "./Assistant.css";
-import { motion } from "framer-motion";
 import { AudioLines } from "lucide-react";
 
 function Assistant() {
   return (
     <section className="hero-center">
 
+      {/* Neon Rings */}
       <div className="girl-ring ring-blue"></div>
       <div className="girl-ring ring-purple"></div>
 
-      <motion.div
-        className="girl-image"
-        animate={{ y: [0, -5, 0] }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      >
+      {/* Assistant Image */}
+      <div className="girl-image">
         <img
           src="/lax-girl.jpg"
           alt="LAX AI Companion"
         />
-      </motion.div>
+      </div>
 
       {/* Greeting Bubble */}
-
       <div className="greeting-bubble">
 
         <div className="greeting-top">
