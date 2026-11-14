@@ -1,65 +1,58 @@
-.voice-section {
-  position: fixed !important;
-  left: 50%;
-  bottom: 18px;
-  transform: translateX(-50%);
 
+.voice-section {
+  position: fixed;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-
-  width: min(440px, 90vw);
-  height: 110px;
-
+  gap: 15px;
+  width: min(390px, 88vw);
+  height: 90px;
   z-index: 60;
+  pointer-events: none;
 }
 
-/* Microphone */
+/* MICROPHONE */
 
 .voice-mic {
-  width: 100px;
-  height: 100px;
-  min-width: 100px;
-
+  width: 82px;
+  height: 82px;
+  min-width: 82px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-
   color: white;
-  border: 3px solid #00cfff;
+  border: 2px solid #00d9ff;
   border-radius: 50%;
-
-  background: linear-gradient(
-    145deg,
-    #8026ff,
-    #101a83
-  );
-
+  background: linear-gradient(145deg, #8026ff, #101a83);
   box-shadow:
     0 0 15px #a42bff,
-    0 0 30px rgba(0, 190, 255, .6),
-    inset 0 0 15px rgba(255,255,255,.15);
-
+    0 0 30px rgba(0, 190, 255, 0.5),
+    inset 0 0 15px rgba(255, 255, 255, 0.15);
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s ease;
+  pointer-events: auto;
 }
 
 .voice-mic:hover {
-  transform: scale(1.07);
+  transform: scale(1.06);
 }
 
 .voice-mic.listening {
   border-color: #00eaff;
   box-shadow:
     0 0 20px #00cfff,
-    0 0 45px #8c24ff;
+    0 0 40px #8c24ff;
 }
 
-/* Waveform */
+/* WAVEFORMS */
 
 .waveform {
   flex: 1;
+  min-width: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,34 +63,58 @@
 
 .waveform span {
   width: 3px;
+  min-width: 2px;
   height: var(--h);
-
   border-radius: 10px;
-
-  background: linear-gradient(
-    to top,
-    #00d9ff,
-    #a52aff
-  );
-
-  box-shadow: 0 0 8px #9e36ff;
-
-  animation: waveAnimation .8s ease-in-out infinite alternate;
+  background: linear-gradient(to top, #00d9ff, #a52aff);
+  box-shadow: 0 0 7px #9e36ff;
+  animation: waveAnimation 0.8s ease-in-out infinite alternate;
   animation-delay: calc(var(--i) * 0.04s);
 }
 
 @keyframes waveAnimation {
   from {
-    transform: scaleY(.35);
-    opacity: .55;
+    transform: scaleY(0.35);
+    opacity: 0.55;
   }
 
   to {
-    transform: scaleY(1.1);
+    transform: scaleY(1);
     opacity: 1;
   }
 }
 
-.voice-mic.listening ~ .waveform span {
-  animation-duration: .3s;
+.voice-section:has(.voice-mic.listening) .waveform span {
+  animation-duration: 0.3s;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .voice-section {
+    width: min(330px, 92vw);
+    height: 75px;
+    gap: 10px;
+    bottom: 8px;
+  }
+
+  .voice-mic {
+    width: 68px;
+    height: 68px;
+    min-width: 68px;
+  }
+
+  .voice-mic svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .waveform {
+    gap: 2px;
+    height: 55px;
+  }
+
+  .waveform span {
+    width: 2px;
+  }
 }
